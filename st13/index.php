@@ -25,7 +25,7 @@
   		<input type="hidden" name="teamName" placeholder="Team Name" autocomplete="off" spellcheck="false" id="name" class="form-control" value="LFC"><br />
 
       <label for="teamForm">Form</label>
-      <input type="string" name="teamName" placeholder="Team Form (wldwl)" autocomplete="off" spellcheck="false" id="teamForm" class="form-control" maxlength="5" ><br />
+      <input type="string" name="teamName" placeholder="1.5" autocomplete="off" spellcheck="false" id="teamForm" class="form-control" maxlength="4" ><br />
 
   		<label for="isHome">At Home?</label>
   		<select name="isHome" id="isHome" class="form-control">
@@ -37,21 +37,10 @@
   		<input type="range" min="1" max="100" value="70" class="slider" id="strengthRange" >
   		<p><strong>Team Strength: <span id="demo"></span></strong></p>
 
-  		<div class="form-row">
-	  		<label for="teamOne">This Team G & CG</label>
-	  		<input type="string" id="thisAttack" placeholder="GPG for team One" autocomplete="off" spellcheck="false" maxlength="4" id="teamOne" class="form-control half" />
-	  		<input type="string" id="thisDefence" placeholder="GCPG for team One" autocomplete="off" spellcheck="false" maxlength="4" class="form-control half"/><br />
-	  	</div>
-
-  		<label for="teamTwo">Other Team G & CG</label>
-  		<input type="string" id="otherAttack" placeholder="GPG for team Two" autocomplete="off" spellcheck="false" maxlength="4" id="teamTwo" class="form-control half" />
-  		<input type="string" id="otherDefence" placeholder="GCPG for team Two" autocomplete="off" spellcheck="false" maxlength="4" class="form-control half" /><br />
 
   		<label for="haRecord">Home or Away PPG</label>
   		<input type="string" id="haRecord" placeholder="Home or Away PPG" autocomplete="off" spellcheck="false" maxlength="4" id="haRecord" class="form-control" /><br />
 
-  		<label for="turnAround" style="display: none;">Turn Around</label>
-  		<input type="hidden" id="turnAround" placeholder="Turn Around" autocomplete="off" spellcheck="false" maxlength="2" id="turnAround" class="form-control" value="4"/><br />
 
   		<label for="ins">Injuries & Suspensions</label>
   		<input type="string" id="ins" placeholder="Injuries or Suspensions" autocomplete="off" spellcheck="false" maxlength="2" id="ins" class="form-control half" />
@@ -65,9 +54,6 @@
 
   		<label for="gamesPlayed">Games Played</label>
   		<input type="string" id="gamesPlayed" placeholder="Games Played e.g 21" autocomplete="off" spellcheck="false" maxlength="2" id="gamesPlayed" class="form-control" /><br />
-
-  		<label for="ppg">Points Per Game</label>
-  		<input type="string" id="ppg" placeholder="points Per Game" autocomplete="off" spellcheck="false" maxlength="4" id="ppg" class="form-control" /><br />
 
 
   		<input type="submit" name="submit" value="Predict" class="btn btn-primary" onclick="getPredictions();return false;"/>
@@ -83,18 +69,12 @@
         let teamForm = $('#teamForm').val();
         let isHome = $('select[name="isHome"]').val();
         let teamStrength = $("#strengthRange").val();
-        let gpgTeamOne = $('#thisAttack').val();
-        let gcpgTeamOne = $('#thisDefence').val();
-        let gpgTeamTwo = $('#otherAttack').val();
-        let gcpgTeamTwo = $('#otherDefence').val();
         let haRecord = $('#haRecord').val();
-        let turnAround = $('#turnAround').val();
         let ins = $('#ins').val();
         let fullSquad = $('#fullSquad').val();
         let odds = $('#odds').val();
         let discipline = $('#discipline').val();
         let gamesPlayed = $('#gamesPlayed').val();
-        let ppg = $('#ppg').val();
 
          $.post("controller.php",
         {
@@ -102,14 +82,11 @@
             teamForm: teamForm,
             isHome: isHome,
             teamStrength: teamStrength,
-            avd: [[gpgTeamOne, gcpgTeamOne], [gpgTeamTwo,  gcpgTeamTwo]],
             haRecord: haRecord,
-            turnAround: turnAround,
             ins: [ins, fullSquad],
             odds: odds,
             discipline: discipline,
             gamesPlayed: gamesPlayed,
-            ppg: ppg
         },
         function(data, status){
             alert("Data: " + data);
