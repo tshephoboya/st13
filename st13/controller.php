@@ -1,7 +1,7 @@
 <?php
 if (isset($_POST['name']))
 {
-	include('Predictor.php');	
+	include('Model\Predictor.php');	
 
 	#Grab all the data.
 	$name = htmlentities($_POST['name']);

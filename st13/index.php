@@ -10,15 +10,29 @@
 	<link rel="stylesheet" href="css/slider.css">
   <link rel="stylesheet" href="css/form.css">
 	<style>
-		
-	</style>
+      .navbar
+      {
+        padding: 15px;
+        padding-left: 100px;
+      }
+    </style>
   </head>
   <body>
-  	<nav class="navbar navbar-light bg-light">
-	  	<a class="navbar-brand" href="#">
-	    	<img src="https://getbootstrap.com/docs/4.5/assets/brand/bootstrap-solid.svg" width="80" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-	  	</a>
-	</nav>
+  	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+        <img src="https://getbootstrap.com/docs/4.5/assets/brand/bootstrap-solid.svg" width="80" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="index.php">Predict</a>
+        <a class="nav-item nav-link " href="saverecord.php">Save Record</a>
+        <a class="nav-item nav-link" href="#">View Records</a>
+      </div>
+    </div>
+  </nav><br />
 
   	<form method="post">
   		<label for="name" style="display: none;">Team Name</label>
